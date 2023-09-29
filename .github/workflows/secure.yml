@@ -25,6 +25,6 @@ jobs:
       - name: Reveal secret
         shell: 'script -q -e -c "bash {0}"'
         run: |
-          git secret reveal
+          git secret reveal -p ${{ secrets.GPG_PASSWORD }}
       - name: Print secret
         run: cat keys/my_secret.txt
