@@ -23,8 +23,8 @@ jobs:
       - name: List files
         run: ls -al keys
       - name: Reveal secret
+        shell: 'script -q -e -c "bash {0}"'
         run: |
-          export GPG_TTY=$(tty)
           git secret reveal
       - name: Print secret
         run: cat keys/my_secret.txt
