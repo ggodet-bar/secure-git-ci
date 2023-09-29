@@ -23,6 +23,6 @@ jobs:
       - name: List files
         run: ls -al keys
       - name: Reveal secret
-        run: git secret reveal
+        run: git secret reveal -f
       - name: Print secret
         run: cat keys/my_secret.txt
