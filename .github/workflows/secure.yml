@@ -13,6 +13,12 @@ jobs:
   display-secret:
     runs-on: ubuntu-latest
     steps:
+      - name: Install git-secret
+        run: apt-get update -y && apt-get install -y git-secret
       - uses: actions/checkout@v2
       - name: List files
         run: ls -al keys
+      - name: Reveal secret
+        run: git secret reveal
+      - name: Print secret
+        run: cat keys/my_secret.txt
