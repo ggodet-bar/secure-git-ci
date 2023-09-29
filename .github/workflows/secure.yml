@@ -18,7 +18,7 @@ jobs:
       - name: Import private GPG key
         run: |
           export GPG_TTY=$(tty)
-          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
       - uses: actions/checkout@v2
       - name: List files
         run: ls -al keys
