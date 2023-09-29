@@ -16,7 +16,9 @@ jobs:
       - name: Install git-secret
         run: sudo apt-get update -y && sudo apt-get install -y git-secret
       - name: Import private GPG key
-        run: echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
+        run: |
+          export GPG_TTY=$(tty)
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
       - uses: actions/checkout@v2
       - name: List files
         run: ls -al keys
