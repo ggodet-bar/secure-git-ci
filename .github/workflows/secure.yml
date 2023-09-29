@@ -23,6 +23,8 @@ jobs:
       - name: List files
         run: ls -al keys
       - name: Reveal secret
-        run: git secret reveal -f
+        run: |
+          export GPG_TTY=$(tty)
+          git secret reveal
       - name: Print secret
         run: cat keys/my_secret.txt
